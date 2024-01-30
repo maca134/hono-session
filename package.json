@@ -1,6 +1,6 @@
 {
 	"name": "hono-session",
-	"version": "0.0.1",
+	"version": "0.0.0",
 	"description": "",
 	"main": "dist/cjs/index.js",
 	"type": "module",
