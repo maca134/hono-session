@@ -1,0 +1,99 @@
+{
+	"name": "hono-session",
+	"version": "0.0.1",
+	"description": "",
+	"main": "dist/cjs/index.js",
+	"type": "module",
+	"module": "dist/index.js",
+	"types": "dist/types/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"test": "tsc --noEmit && vitest --run",
+		"clean": "rimraf dist logs .turbo",
+		"build": "rimraf dist && tsx ./build.ts && npm run copy:package.cjs.json",
+		"copy:package.cjs.json": "shx cp ./package.cjs.json ./dist/cjs/package.json && shx cp ./package.cjs.json ./dist/types/package.json",
+		"lint": "eslint --ext js,ts src",
+		"lint:fix": "eslint --ext js,ts src --fix",
+		"format": "prettier --check \"src/**/*.{js,ts}\"",
+		"format:fix": "prettier --write \"src/**/*.{js,ts}\"",
+		"postbuild": "publint",
+		"coverage": "vitest --run --coverage",
+		"release": "np",
+		"example": "tsx src/example/index.ts",
+		"prettier": "prettier --write \"**/*.{ts,tsx,md,cjs}\""
+	},
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/cjs/index.js"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"types": [
+				"./dist/types/types"
+			]
+		}
+	},
+	"author": "Matthew McConnell <maca134@googlemail.com> (https://github.com/maca134)",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/maca134/hono-session"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org"
+	},
+	"homepage": "https://github.com/maca134/hono-session",
+	"keywords": [
+		"hono",
+		"web",
+		"app",
+		"http",
+		"application",
+		"framework",
+		"router",
+		"cloudflare",
+		"workers",
+		"fastly",
+		"compute@edge",
+		"deno",
+		"bun",
+		"lagon",
+		"lambda",
+		"nodejs"
+	],
+	"devDependencies": {
+		"@hono/node-server": "^1.7.0",
+		"@types/eslint": "^8.56.2",
+		"@types/node": "^20.11.10",
+		"@typescript-eslint/eslint-plugin": "^6.20.0",
+		"@typescript-eslint/parser": "^6.20.0",
+		"@vitest/coverage-v8": "^1.2.2",
+		"esbuild": "^0.20.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-define-config": "^2.1.0",
+		"eslint-import-resolver-typescript": "^3.6.1",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-node": "^11.1.0",
+		"glob": "^10.3.10",
+		"np": "^9.2.0",
+		"prettier": "^3.2.4",
+		"publint": "^0.2.7",
+		"rimraf": "^5.0.5",
+		"shx": "^0.3.4",
+		"tsx": "^4.7.0",
+		"typescript": "^5.3.3",
+		"vitest": "^1.2.2"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"dependencies": {
+		"hono": "^3.12.8"
+	}
+}
