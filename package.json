@@ -1,6 +1,6 @@
 {
 	"name": "@maca134/hono-session",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "",
 	"main": "dist/cjs/index.js",
 	"type": "module",
