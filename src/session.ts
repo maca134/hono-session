@@ -60,6 +60,11 @@ export function session<T extends HonoSessionData = HonoSessionData>(
 
 		await next();
 
+		if (!session.data) {
+			await deleteSession<T>(ctx, opts);
+			return;
+		}
+
 		let endHash: string;
 		try {
 			endHash = hashData(session.data);
