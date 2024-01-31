@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"test": "tsc --noEmit && vitest --run",
-		"clean": "rimraf dist logs .turbo",
+		"clean": "rimraf dist coverage",
 		"build": "rimraf dist && tsx ./build.ts && npm run copy:package.cjs.json",
 		"copy:package.cjs.json": "shx cp ./package.cjs.json ./dist/cjs/package.json && shx cp ./package.cjs.json ./dist/types/package.json",
 		"lint": "eslint --ext js,ts src",
@@ -34,7 +34,7 @@
 	"typesVersions": {
 		"*": {
 			"types": [
-				"./dist/types/types"
+				"./dist/types"
 			]
 		}
 	},
