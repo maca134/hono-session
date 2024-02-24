@@ -26,5 +26,5 @@ export async function getSession<T extends HonoSessionData = HonoSessionData>(
 	if (sessionId) {
 		session.id = sessionId;
 	}
-	return session;
+	return session as HonoSession<T>;
 }
