@@ -11,6 +11,7 @@
 	],
 	"scripts": {
 		"update-deps": "npm-check-updates -u && npm i",
+		"release": "np",
 		"test": "tsc --noEmit && vitest --run",
 		"clean": "rimraf dist coverage",
 		"build": "rimraf dist && tsx ./build.ts && npm run copy:package.cjs.json",
@@ -22,7 +23,6 @@
 		"postbuild": "publint",
 		"coverage": "vitest --run --coverage",
 		"prerelease": "npm run build",
-		"release": "np",
 		"example": "tsx src/example/index.ts",
 		"prettier": "prettier --write \"**/*.{ts,tsx,md,cjs}\""
 	},
