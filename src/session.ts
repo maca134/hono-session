@@ -49,7 +49,7 @@ export function session<T extends HonoSessionData = HonoSessionData>(
 		name: options.name ?? 'sid',
 		secret: options.secret,
 		cookieOptions: options.cookieOptions ?? { path: '/', httpOnly: true },
-		generateId: options.generateId || randomBytes(32).toString('hex'),
+		generateId: options.generateId || (() => randomBytes(32).toString('hex')),
 		hashData: options.hashData ?? hashData,
 	} as HonoSessionOpts<T>;
 
