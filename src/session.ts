@@ -1,5 +1,6 @@
 import type { MiddlewareHandler } from 'hono';
 import type { CookieOptions } from 'hono/utils/cookie';
+import { randomBytes } from 'crypto';
 import { deleteSession } from './deleteSession';
 import { getSession } from './getSession';
 import { hashData } from './hashData';
@@ -29,6 +30,7 @@ export type HonoSession<T extends HonoSessionData = HonoSessionData> = {
 	data: T;
 	id?: string;
 	clear: () => void;
+	regenerate: () => Promise<void>;
 };
 
 export type HonoSessionEnv<T extends HonoSessionData = HonoSessionData> = {
@@ -55,7 +57,7 @@ export function session<T extends HonoSessionData = HonoSessionData>(
 		name: options.name ?? 'sid',
 		secret: options.secret,
 		cookieOptions: options.cookieOptions ?? { path: '/', httpOnly: true },
-		generateId: options.generateId,
+		generateId: options.generateId || randomBytes(32).toString('hex'),
 		hashData: options.hashData ?? hashData,
 	} as HonoSessionOpts<T>;
 

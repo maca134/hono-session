@@ -1,4 +1,3 @@
-import { randomBytes } from 'crypto';
 import type { Context } from 'hono';
 import { setSignedCookie } from 'hono/cookie';
 import type { HonoSessionData, HonoSessionEnv, HonoSessionOpts } from './session';
@@ -8,7 +7,7 @@ export async function saveSession<T extends HonoSessionData = HonoSessionData>(
 	opt: HonoSessionOpts<T>
 ) {
 	if (!ctx.var.session.id) {
-		ctx.var.session.id = opt.generateId ? opt.generateId() : randomBytes(32).toString('hex');
+		ctx.var.session.id = opt.generateId!();
 	}
 	await Promise.allSettled([
 		opt.store.set(ctx.var.session.id, ctx.var.session.data),
