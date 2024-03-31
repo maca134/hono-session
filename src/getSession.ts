@@ -11,6 +11,12 @@ export async function getSession<T extends HonoSessionData = HonoSessionData>(
 		clear() {
 			session.data = {};
 		},
+		async regenerate() {
+			if (session.id) {
+				await opts.store.delete(session.id);
+				session.id = undefined;
+			}
+		},
 	};
 	let sessionId = await getSignedCookie(ctx, opts.secret, opts.name);
 	if (sessionId) {
