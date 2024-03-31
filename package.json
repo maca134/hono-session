@@ -68,33 +68,33 @@
 		"nodejs"
 	],
 	"devDependencies": {
-		"@hono/node-server": "^1.8.1",
-		"@types/eslint": "^8.56.3",
-		"@types/node": "^20.11.20",
-		"@typescript-eslint/eslint-plugin": "^7.0.2",
-		"@typescript-eslint/parser": "^7.0.2",
-		"@vitest/coverage-v8": "^1.3.1",
-		"esbuild": "^0.20.1",
+		"@hono/node-server": "^1.9.1",
+		"@types/eslint": "^8.56.6",
+		"@types/node": "^20.12.2",
+		"@typescript-eslint/eslint-plugin": "^7.4.0",
+		"@typescript-eslint/parser": "^7.4.0",
+		"@vitest/coverage-v8": "^1.4.0",
+		"esbuild": "^0.20.2",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-define-config": "^2.1.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
 		"eslint-plugin-import": "^2.29.1",
 		"eslint-plugin-node": "^11.1.0",
-		"glob": "^10.3.10",
-		"np": "^9.2.0",
+		"glob": "^10.3.12",
+		"np": "^10.0.2",
 		"prettier": "^3.2.5",
 		"publint": "^0.2.7",
 		"rimraf": "^5.0.5",
 		"shx": "^0.3.4",
 		"tsx": "^4.7.1",
-		"typescript": "^5.3.3",
-		"vitest": "^1.3.1"
+		"typescript": "^5.4.3",
+		"vitest": "^1.4.0"
 	},
 	"engines": {
 		"node": ">=16.0.0"
 	},
 	"dependencies": {
-		"hono": "^4.0.6"
+		"hono": "^4.1.7"
 	}
 }
