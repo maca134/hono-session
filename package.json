@@ -20,6 +20,7 @@
 		"format:fix": "prettier --write \"src/**/*.{js,ts}\"",
 		"postbuild": "publint",
 		"coverage": "vitest --run --coverage",
+		"prerelease": "npm run build",
 		"release": "np",
 		"example": "tsx src/example/index.ts",
 		"prettier": "prettier --write \"**/*.{ts,tsx,md,cjs}\""
