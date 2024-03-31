@@ -1,6 +1,7 @@
+import { randomBytes } from 'crypto';
 import type { MiddlewareHandler } from 'hono';
 import type { CookieOptions } from 'hono/utils/cookie';
-import { randomBytes } from 'crypto';
+import { JSONObject } from 'hono/utils/types';
 import { deleteSession } from './deleteSession';
 import { getSession } from './getSession';
 import { hashData } from './hashData';
@@ -15,16 +16,7 @@ export interface SessionStore<T> {
 	touch: (sid: string) => Promise<void>;
 }
 
-type JSONValue =
-	| string
-	| number
-	| boolean
-	| undefined
-	| null
-	| { [x: string]: JSONValue }
-	| JSONValue[];
-
-export type HonoSessionData = Record<string, JSONValue>;
+export type HonoSessionData = JSONObject;
 
 export type HonoSession<T extends HonoSessionData = HonoSessionData> = {
 	data: T;
