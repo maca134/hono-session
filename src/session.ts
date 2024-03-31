@@ -7,7 +7,6 @@ import { saveSession } from './saveSession';
 import { MemoryStore } from './store/MemoryStore';
 import { touchSession } from './touchSession';
 
-
 export interface SessionStore<T> {
 	get: (sid: string) => Promise<T | undefined>;
 	set: (sid: string, data: T) => Promise<void>;
@@ -15,7 +14,14 @@ export interface SessionStore<T> {
 	touch: (sid: string) => Promise<void>;
 }
 
-type JSONValue = string | number | boolean | undefined | null | { [x: string]: JSONValue } | JSONValue[];
+type JSONValue =
+	| string
+	| number
+	| boolean
+	| undefined
+	| null
+	| { [x: string]: JSONValue }
+	| JSONValue[];
 
 export type HonoSessionData = Record<string, JSONValue>;
 
@@ -50,7 +56,7 @@ export function session<T extends HonoSessionData = HonoSessionData>(
 		secret: options.secret,
 		cookieOptions: options.cookieOptions ?? { path: '/', httpOnly: true },
 		generateId: options.generateId,
-		hashData: options.hashData ?? hashData
+		hashData: options.hashData ?? hashData,
 	} as HonoSessionOpts<T>;
 
 	const NO_SESSION_HASH = opts.hashData({} as T);

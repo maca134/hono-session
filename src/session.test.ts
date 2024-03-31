@@ -119,6 +119,5 @@ describe('session', () => {
 		});
 		const cookie = request.headers.get('set-cookie');
 		expect(cookie).toBe('sid=; Max-Age=0; Path=/; HttpOnly; SameSite=Strict');
-
 	});
 });
