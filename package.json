@@ -10,6 +10,7 @@
 		"dist"
 	],
 	"scripts": {
+		"update-deps": "npm-check-updates -u && npm i",
 		"test": "tsc --noEmit && vitest --run",
 		"clean": "rimraf dist coverage",
 		"build": "rimraf dist && tsx ./build.ts && npm run copy:package.cjs.json",
@@ -95,6 +96,7 @@
 		"node": ">=16.0.0"
 	},
 	"dependencies": {
-		"hono": "^4.1.7"
+		"hono": "^4.1.7",
+		"npm-check-updates": "^16.14.18"
 	}
 }
