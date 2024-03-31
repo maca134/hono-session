@@ -2,7 +2,7 @@ import type { Context } from 'hono';
 import { deleteCookie } from 'hono/cookie';
 import type { HonoSessionData, HonoSessionEnv, HonoSessionOpts } from './session';
 
-export async function deleteSession<T extends HonoSessionData>(
+export async function deleteSession<T extends HonoSessionData = HonoSessionData>(
 	ctx: Context<HonoSessionEnv<T>>,
 	opts: HonoSessionOpts<T>
 ) {
