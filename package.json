@@ -84,6 +84,7 @@
 		"eslint-plugin-node": "^11.1.0",
 		"glob": "^10.3.12",
 		"np": "^10.0.2",
+		"npm-check-updates": "^16.14.18",
 		"prettier": "^3.2.5",
 		"publint": "^0.2.7",
 		"rimraf": "^5.0.5",
@@ -96,7 +97,6 @@
 		"node": ">=16.0.0"
 	},
 	"dependencies": {
-		"hono": "^4.1.7",
-		"npm-check-updates": "^16.14.18"
+		"hono": "^4.1.7"
 	}
 }
