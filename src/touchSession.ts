@@ -9,6 +9,7 @@ export async function touchSession<T extends HonoSessionData = HonoSessionData>(
 	if (ctx.var.session.id) {
 		await Promise.all([
 			opt.store.touch(ctx.var.session.id),
+			// send cookie on every request?
 			setSignedCookie(ctx, opt.name, ctx.var.session.id, opt.secret, opt.cookieOptions),
 		]);
 	}

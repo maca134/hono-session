@@ -1,7 +1,7 @@
 import { randomBytes } from 'crypto';
 import type { MiddlewareHandler } from 'hono';
 import type { CookieOptions } from 'hono/utils/cookie';
-import { JSONObject } from 'hono/utils/types';
+import type { JSONObject } from 'hono/utils/types';
 import { deleteSession } from './deleteSession';
 import { getSession } from './getSession';
 import { hashData } from './hashData';
