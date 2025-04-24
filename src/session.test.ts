@@ -34,7 +34,7 @@ const sessionConfig: HonoSessionOptions<MySessionData> = {
 const sessionId = '123.PK%2FkD5K%2Basd9J5K0smfC2hHj8wh7k7sZxsUTN4aYS0Q%3D';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type MockedFnc<T extends (...args: any) => any> = Mock<Parameters<T>, ReturnType<T>>;
+type MockedFnc<T extends (...args: any) => any> = Mock<T>;
 
 describe('session', () => {
 	let app: Hono<HonoSessionEnv<MySessionData>>;
