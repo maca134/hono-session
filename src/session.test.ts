@@ -41,7 +41,7 @@ describe('session', () => {
 
 	beforeEach(() => {
 		app = new Hono<HonoSessionEnv<MySessionData>>();
-		app.use('*', session(sessionConfig));
+		app.use('*', session(sessionConfig)());
 
 		app.get('/nothing', async (ctx) => {
 			return ctx.json({
