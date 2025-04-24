@@ -96,7 +96,7 @@
 	"engines": {
 		"node": ">=16.0.0"
 	},
-	"dependencies": {
-		"hono": "^4.1.7"
+	"peerDependencies": {
+		"hono": ">=4.*"
 	}
 }
