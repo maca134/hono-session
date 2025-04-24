@@ -29,7 +29,8 @@
 	"exports": {
 		".": {
 			"types": "./dist/types/index.d.ts",
-			"default": "./dist/cjs/index.js"
+			"import": "./dist/index.js",
+			"require": "./dist/cjs/index.js"
 		}
 	},
 	"typesVersions": {
