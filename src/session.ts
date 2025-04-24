@@ -41,9 +41,7 @@ export type HonoSessionOptions<T extends HonoSessionData = HonoSessionData> = {
 export type HonoSessionOpts<T extends HonoSessionData = HonoSessionData> = HonoSessionOptions<T> &
 	Required<Pick<HonoSessionOptions<T>, 'store' | 'name' | 'cookieOptions' | 'hashData'>>;
 
-export function session<T extends HonoSessionData = HonoSessionData>(
-	options: HonoSessionOptions<T>
-): MiddlewareHandler<HonoSessionEnv<T>> {
+export const session = <T extends HonoSessionData = HonoSessionData>(options: HonoSessionOptions<T>) => (): MiddlewareHandler<HonoSessionEnv<T>> => {
 	const opts = {
 		store: options.store ?? new MemoryStore(1000 * 60 * 60 * 24),
 		name: options.name ?? 'sid',
@@ -83,4 +81,5 @@ export function session<T extends HonoSessionData = HonoSessionData>(
 			await touchSession<T>(ctx, opts);
 		}
 	};
-}
+};
+
